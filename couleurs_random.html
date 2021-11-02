@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8"/>
+        <title>exo mardi 8 juin</title>
+    </head>
+
+    <body>
+<!-------------------------EXERCICE COULEURS --------------------------->
+
+<!---------------------------------------------------------------------->
+        <script>
+            function hasard(min,max){
+	return min+Math.floor(Math.random()*(max-min+1));
+}
+    for(i=0;i<6;i++){
+	document.write(hasard(0,9));
+}
+//Convert a number to a hexadecimal string with:hexString = yourNumber.toString(16);
+//reverse the process with yourNumber = parseInt(hexString, 16);
+         </script>
+
+        <p>générer une code couleur hexadecimal aléatoire (de type : #FFCC55)</p>
+        <p>On peut générer un nombre aléatoire en JavaScript avec la méthode Math.rand()
+        mais ce nombre est systématiquement compris entre 0 et 1.
+        Il faut ensuite multiplier le nombre aléatoire généré par la différence entre les deux nombres qui sont les limites et ajouter 1.
+        On obtient ainsi un nombre à virgule. La méthode Math.floor() va récupérer la partie entière de ce nombre.
+         Après ce calcul, il ne reste plus qu'à ajouter le nombre inférieur de l'intervalle pour obtenir un nombre aléatoire compris dans l'intervalle.</p>
+   <script>
+       function GenereRandomColor() {
+        let letters = "#FFCC55";
+        let color = "#";
+
+        for (i=0; i<6; i++) {
+            color += Math.floor( Math.random()*15).toString(16);
+            // chiffre flottant entre 0 et 9.999, math.floor enleve la virgule
+            //donc entr 0 et 9. on rajoute +1 pour passer de 0 à 10
+            // si on avait fait *10) -5); on aurait eu un chiffre entre -5 et 5
+          //document.write( Math.floor( Math.random() *10) +1);
+          
+        }
+        return color;
+       }
+       document.write(GenereRandomColor())
+       let macouleur=GenereRandomColor()
+   </script>  
+        <div id="couleurimport"> </div>
+        <script>
+            let recuperation=document.getElementById("couleurimport")
+            console.log(recuperation);
+            recuperation.innerHTML="mon contenu est donc récupéré"
+            recuperation.style.height="200px";
+            recuperation.style.width="400px";
+            recuperation.style.backgroundColor=macouleur;
+            recuperation.style.borderRadius="10%";
+            recuperation.style.textAlign="center";
+        </script>
+    </body>
+</html>
